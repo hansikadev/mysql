@@ -5,12 +5,11 @@ import mysql from 'mysql2/promise';
 const connection = await mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'my_password',   // 👈 your MySQL password
+  password: 'my_password',  
   database: 'delta_app',
 });
 
 try {
-  // ❌ don't use callback, use await
   const [rows] = await connection.query("SHOW TABLES");
   console.log("Tables:", rows);
 } catch (error) {
